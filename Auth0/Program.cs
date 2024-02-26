@@ -93,7 +93,12 @@ app.UseCors("APP-POLICY");
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.EnableTryItOutByDefault();
+        options.EnablePersistAuthorization();
+        options.DisplayRequestDuration();
+    });
 }
 
 app.UseHttpsRedirection();
